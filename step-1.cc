@@ -228,18 +228,10 @@ void second_grid()
             }
         }
 
-      // Now that we have marked all the cells that we want refined, we let
-      // the triangulation actually do this refinement. The function that does
-      // so owes its long name to the fact that one can also mark cells for
-      // coarsening, and the function does coarsening and refinement all at
-      // once:
       triangulation.execute_coarsening_and_refinement();
     }
 
 
-  // Finally, after these five iterations of refinement, we want to again
-  // write the resulting mesh to a file, again in eps format. This works just
-  // as above:
   std::ofstream out("grid-2.eps");
   GridOut       grid_out;
   grid_out.write_eps(triangulation, out);
@@ -248,11 +240,6 @@ void second_grid()
 }
 
 
-
-// @sect3{The main function}
-
-// Finally, the main function. There isn't much to do here, only to call the
-// two subfunctions, which produce the two grids.
 int main()
 {
   first_grid();
